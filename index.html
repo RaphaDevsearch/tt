@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Tariq Hair | Natural Care for Beautiful, Healthy Curls</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: {
+                            DEFAULT: '#A65A38',
+                            dark: '#8C4627',
+                            light: '#C4724E',
+                        },
+                        cream: {
+                            DEFAULT: '#FAF5F0',
+                            card: '#FFFFFF',
+                            muted: '#F3EAE1',
+                        },
+                        earthgreen: '#4A6B48',
+                        charcoal: '#1A1A1A',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+        html {
+            scroll-padding-top: calc(5rem + env(safe-area-inset-top, 0px));
+        }
+
+        /* Subtle background organic pattern */
+        body {
+            background-color: #FAF5F0;
+            background-image: radial-gradient(#E8D8C8 0.75px, transparent 0.75px);
+            background-size: 24px 24px;
+        }
+
+        /* Smooth Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+        }
+    </style>
+</head>
+<body class="font-sans text-charcoal antialiased selection:bg-terracotta selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-terracotta/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-terracotta">Tariq</span>
+                <span class="text-[10px] sm:text-xs uppercase tracking-widest font-bold text-earthgreen border-l border-terracotta/20 pl-2">Hair Care</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-charcoal/80">
+                <a href="#about" class="hover:text-terracotta transition-colors">Our Story</a>
+                <a href="#products" class="hover:text-terracotta transition-colors">Products</a>
+                <a href="#segments" class="hover:text-terracotta transition-colors">Who It's For</a>
+                <a href="#salon" class="hover:text-terracotta transition-colors">Salon & Care</a>
+                <a href="#diy" class="hover:text-terracotta transition-colors">DIY Recipe</a>
+                <a href="#business" class="hover:text-terracotta transition-colors">Business Model</a>
+            </nav>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center space-x-3">
+                <a href="#products" class="inline-flex items-center justify-center px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold text-white bg-terracotta hover:bg-terracotta-dark active:scale-95 transition-all shadow-md shadow-terracotta/20">
+                    Shop Routine
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" aria-label="Toggle navigation menu" class="lg:hidden p-2 rounded-xl bg-cream-muted text-charcoal hover:text-terracotta focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-cream/95 backdrop-blur-xl border-b border-terracotta/10 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="mobile-link block px-3 py-2.5 rounded-xl font-medium hover:bg-cream-muted">Our Story</a>
+            <a href="#products" class="mobile-link block px-3 py-2.5 rounded-xl font-medium hover:bg-cream-muted">Products</a>
+            <a href="#segments" class="mobile-link block px-3 py-2.5 rounded-xl font-medium hover:bg-cream-muted">Who It's For</a>
+            <a href="#salon" class="mobile-link block px-3 py-2.5 rounded-xl font-medium hover:bg-cream-muted">Salon & Services</a>
+            <a href="#diy" class="mobile-link block px-3 py-2.5 rounded-xl font-medium hover:bg-cream-muted">DIY Hair Mask Recipe</a>
+            <a href="#business" class="mobile-link block px-3 py-2.5 rounded-xl font-medium hover:bg-cream-muted">Business Model</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden py-12 sm:py-20 lg:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                
+                <!-- Left Column text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-terracotta/10 border border-terracotta/15 text-terracotta text-xs sm:text-sm font-bold">
+                        <span>✨ Natural Care for Beautiful, Healthy Curls</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-charcoal leading-[1.12]">
+                        NOURISH. <br class="hidden sm:inline"/>
+                        <span class="text-terracotta italic">DEFINE.</span> <br class="hidden sm:inline"/>
+                        EMPOWER.
+                    </h1>
+
+                    <p class="text-base sm:text-xl text-charcoal/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        Tariq Hair is dedicated to the beauty and health of curly hair. Formulated with safe, natural botanical ingredients to hydrate, eliminate frizz, and bring out maximum curl bounce.
+                    </p>
+
+                    <!-- Improved Mobile & Desktop Buttons -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3.5 pt-2">
+                        <a href="#products" class="w-full sm:w-auto px-8 py-4 rounded-full text-base font-bold text-white bg-terracotta hover:bg-terracotta-dark active:scale-[0.98] transition-all text-center shadow-lg shadow-terracotta/25">
+                            Explore Products
+                        </a>
+                        <a href="#salon" class="w-full sm:w-auto px-8 py-4 rounded-full text-base font-bold text-terracotta bg-cream-card hover:bg-cream-muted border border-terracotta/20 active:scale-[0.98] transition-all text-center shadow-sm">
+                            Book Salon Appointment
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators Grid -->
+                    <div class="pt-6 sm:pt-10 border-t border-terracotta/10 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                        <div class="p-3 bg-cream-card rounded-2xl border border-terracotta/10 shadow-xs">
+                            <span class="block font-bold text-terracotta text-xs sm:text-sm">🌱 100% Natural</span>
+                            <span class="text-[11px] text-charcoal/60">Botanical Ingredients</span>
+                        </div>
+                        <div class="p-3 bg-cream-card rounded-2xl border border-terracotta/10 shadow-xs">
+                            <span class="block font-bold text-terracotta text-xs sm:text-sm">🚫 Clean Care</span>
+                            <span class="text-[11px] text-charcoal/60">No Sulfates/Parabens</span>
+                        </div>
+                        <div class="p-3 bg-cream-card rounded-2xl border border-terracotta/10 shadow-xs">
+                            <span class="block font-bold text-terracotta text-xs sm:text-sm">🐰 Cruelty-Free</span>
+                            <span class="text-[11px] text-charcoal/60">Ethically Made</span>
+                        </div>
+                        <div class="p-3 bg-cream-card rounded-2xl border border-terracotta/10 shadow-xs">
+                            <span class="block font-bold text-terracotta text-xs sm:text-sm">🌀 All Curl Types</span>
+                            <span class="text-[11px] text-charcoal/60">Type 2 to Type 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Hero Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none bg-cream-card p-6 sm:p-8 rounded-3xl shadow-xl border border-terracotta/10">
+                        <div class="aspect-square bg-gradient-to-br from-cream-muted to-cream rounded-2xl flex flex-col items-center justify-center p-6 text-center space-y-3 border border-terracotta/10">
+                            <span class="text-6xl sm:text-7xl">✨👩‍🦱</span>
+                            <p class="font-serif text-2xl sm:text-3xl font-bold text-terracotta">Love Your Curls,</p>
+                            <p class="text-sm sm:text-base text-charcoal/70 italic font-serif">Love Yourself.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-terracotta/10 flex items-center justify-between text-xs sm:text-sm font-semibold">
+                            <span class="text-charcoal/80">Complete Curl Care Line</span>
+                            <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-earthgreen/10 text-earthgreen font-bold">
+                                In Stock
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND STORY SECTION -->
+    <section id="about" class="py-16 sm:py-24 bg-cream-card border-y border-terracotta/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div class="space-y-5 text-left">
+                    <span class="text-xs uppercase tracking-widest font-bold text-earthgreen">Our Philosophy</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-tight">
+                        At Tariq Hair, we believe every curl is unique and beautiful.
+                    </h2>
+                    <p class="text-charcoal/80 leading-relaxed text-sm sm:text-base">
+                        Tariq Hair is more than just a hair care brand; it’s a movement to embrace, nourish, and celebrate natural curls. We create high-quality, natural, and effective products that deeply hydrate and define curls without harsh chemicals.
+                    </p>
+                    <p class="text-charcoal/80 leading-relaxed text-sm sm:text-base">
+                        Our mission is to empower every curl with products made with love, safe ingredients, and proven results.
+                    </p>
+                </div>
+
+                <!-- Transformation Block -->
+                <div class="bg-cream p-6 sm:p-8 rounded-3xl border border-terracotta/15 space-y-6">
+                    <h3 class="font-serif text-2xl font-bold text-terracotta">Visible Curl Transformation</h3>
+                    <p class="text-xs sm:text-sm text-charcoal/70">
+                        Formulated to transition dry, frizzy, and unmanageable strands into soft, defined, healthy curls.
+                    </p>
+                    <div class="grid grid-cols-2 gap-3 sm:gap-4 pt-2">
+                        <div class="bg-white p-4 rounded-2xl border border-terracotta/10 text-center shadow-xs">
+                            <span class="block text-[10px] uppercase font-bold text-charcoal/40">Before</span>
+                            <span class="block text-sm font-bold text-charcoal mt-1">Frizz & Dryness</span>
+                            <span class="text-xs text-charcoal/60">Lack of definition</span>
+                        </div>
+                        <div class="bg-terracotta/10 p-4 rounded-2xl border border-terracotta/20 text-center">
+                            <span class="block text-[10px] uppercase font-bold text-terracotta">After Tariq</span>
+                            <span class="block text-sm font-bold text-terracotta-dark mt-1">Defined & Hydrated</span>
+                            <span class="text-xs text-terracotta">Long-lasting bounce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section id="products" class="py-16 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs uppercase tracking-widest font-bold text-earthgreen">Pure Botanical Care</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-charcoal">Our Signature Products</h2>
+                <p class="text-charcoal/70 text-sm sm:text-base">Specially formulated for all curl types (Type 2, 3, and 4) using 100% natural, nourishing ingredients.</p>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+                
+                <!-- Product 1 -->
+                <div class="reveal bg-cream-card rounded-3xl p-6 flex flex-col justify-between border border-terracotta/10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="space-y-4">
+                        <div class="aspect-square bg-cream-muted rounded-2xl flex items-center justify-center text-5xl">
+                            🧴
+                        </div>
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-terracotta/10 text-terracotta">250 ml</span>
+                        <h3 class="font-serif text-xl font-bold text-charcoal">Curl Defining Shampoo</h3>
+                        <p class="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                            Hydrates & cleanses thoroughly without stripping natural scalp oils. Gentle formulation for healthy curls.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-terracotta/10">
+                        <button class="w-full py-3 rounded-full bg-terracotta hover:bg-terracotta-dark text-white font-bold text-sm active:scale-95 transition-all shadow-md shadow-terracotta/20">
+                            Add to Routine
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="reveal bg-cream-card rounded-3xl p-6 flex flex-col justify-between border border-terracotta/10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="space-y-4">
+                        <div class="aspect-square bg-cream-muted rounded-2xl flex items-center justify-center text-5xl">
+                            ✨
+                        </div>
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-terracotta/10 text-terracotta">250 ml</span>
+                        <h3 class="font-serif text-xl font-bold text-charcoal">Leave-In Conditioner</h3>
+                        <p class="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                            Moisturizes, protects, and defines curls all day. Superior frizz control for smooth, touchable texture.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-terracotta/10">
+                        <button class="w-full py-3 rounded-full bg-terracotta hover:bg-terracotta-dark text-white font-bold text-sm active:scale-95 transition-all shadow-md shadow-terracotta/20">
+                            Add to Routine
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="reveal bg-cream-card rounded-3xl p-6 flex flex-col justify-between border border-terracotta/10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="space-y-4">
+                        <div class="aspect-square bg-cream-muted rounded-2xl flex items-center justify-center text-5xl">
+                            🍯
+                        </div>
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-terracotta/10 text-terracotta">300 ml</span>
+                        <h3 class="font-serif text-xl font-bold text-charcoal">Deep Conditioning Mask</h3>
+                        <p class="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                            Hydrates & strengthens damaged strands. Deep nourishment for soft, shiny, and resilient curl patterns.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-terracotta/10">
+                        <button class="w-full py-3 rounded-full bg-terracotta hover:bg-terracotta-dark text-white font-bold text-sm active:scale-95 transition-all shadow-md shadow-terracotta/20">
+                            Add to Routine
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="reveal bg-cream-card rounded-3xl p-6 flex flex-col justify-between border border-terracotta/10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all">
+                    <div class="space-y-4">
+                        <div class="aspect-square bg-cream-muted rounded-2xl flex items-center justify-center text-5xl">
+                            🫧
+                        </div>
+                        <span class="inline-block text-xs font-bold px-3 py-1 rounded-full bg-terracotta/10 text-terracotta">200 ml</span>
+                        <h3 class="font-serif text-xl font-bold text-charcoal">Curl Refresh Foam</h3>
+                        <p class="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                            Revives tired curls and adds weightless volume. Perfect for second-day hair revitalization and quick styling.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-terracotta/10">
+                        <button class="w-full py-3 rounded-full bg-terracotta hover:bg-terracotta-dark text-white font-bold text-sm active:scale-95 transition-all shadow-md shadow-terracotta/20">
+                            Add to Routine
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TARGET AUDIENCE -->
+    <section id="segments" class="py-16 sm:py-24 bg-cream-card border-y border-terracotta/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs uppercase tracking-widest font-bold text-earthgreen">Inclusivity</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-charcoal">Designed For Every Curl Story</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+                <div class="reveal p-8 rounded-3xl bg-cream border border-terracotta/10 space-y-3">
+                    <span class="text-4xl">👩</span>
+                    <h3 class="font-serif text-xl font-bold">Women <span class="text-xs text-terracotta font-sans font-bold">(Primary Focus)</span></h3>
+                    <p class="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                        Women with wavy, curly, or coily hair looking for natural, sulfate-free, and moisturizing styling solutions.
+                    </p>
+                </div>
+                <div class="reveal p-8 rounded-3xl bg-cream border border-terracotta/10 space-y-3">
+                    <span class="text-4xl">👨</span>
+                    <h3 class="font-serif text-xl font-bold">Men</h3>
+                    <p class="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                        Men with textured hair desiring deep hydration, effortless definition, and simple daily care routines.
+                    </p>
+                </div>
+                <div class="reveal p-8 rounded-3xl bg-cream border border-terracotta/10 space-y-3">
+                    <span class="text-4xl">👶</span>
+                    <h3 class="font-serif text-xl font-bold">Children</h3>
+                    <p class="text-xs sm:text-sm text-charcoal/70 leading-relaxed">
+                        Parents looking for ultra-gentle, safe, tear-free, and sulfate-free curly hair care formulations for kids.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SALON & IN-PERSON SERVICES -->
+    <section id="salon" class="py-16 sm:py-24 bg-terracotta text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative z-10">
+            
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-white/15 pb-8">
+                <div class="space-y-3">
+                    <span class="text-xs uppercase tracking-widest font-bold text-cream-muted">In-Person Experience</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold">Natural Hair Salon by Kiala Soa</h2>
+                    <p class="text-cream-muted/90 max-w-xl text-sm sm:text-base">Specialized curl definition, natural styling, and custom hair treatments.</p>
+                </div>
+                <div class="inline-flex items-center self-start lg:self-auto px-4 py-2 rounded-full bg-white/15 backdrop-blur-md text-xs font-semibold border border-white/20">
+                    📍 Place MAHAZO (01h à 17h)
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Salon Card 1 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/15 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl font-bold">Definition Boucle</h3>
+                        <span class="text-sm font-bold text-cream-muted bg-white/10 px-2.5 py-1 rounded-lg">À partir de 7.000 Ar</span>
+                    </div>
+                    <p class="text-xs text-cream-muted/80 leading-relaxed">Mise en forme de tous types de boucles avec des méthodes et produits naturels.</p>
+                    <ul class="text-xs space-y-1.5 text-cream-muted/90 pt-2 border-t border-white/10">
+                        <li>• Cheveux bouclés Type 2 à Type 4</li>
+                        <li>• Brosse, fingers, rouleau, baguette</li>
+                        <li>• Séchage au diffuseur / casque</li>
+                    </ul>
+                </div>
+
+                <!-- Salon Card 2 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/15 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <h3 class="font-serif text-xl font-bold">Soin Capillaire</h3>
+                        <span class="text-sm font-bold text-cream-muted bg-white/10 px-2.5 py-1 rounded-lg">Sur RDV 3.000 Ar</span>
+                    </div>
+                    <p class="text-xs text-cream-muted/80 leading-relaxed">Traitements profonds et soins sur-mesure adaptées à la santé de votre fibre capillaire.</p>
+                    <ul class="text-xs space-y-1.5 text-cream-muted/90 pt-2 border-t border-white/10">
+                        <li>• Diagnostic capillaire personnalisé</li>
+                        <li>• Soins réparateurs intensifs</li>
+                    </ul>
+                </div>
+
+                <!-- Salon Card 3 CTA -->
+                <div class="bg-cream-card text-charcoal p-6 sm:p-8 rounded-3xl space-y-6 flex flex-col justify-between shadow-xl">
+                    <div class="space-y-2">
+                        <h3 class="font-serif text-2xl font-bold text-terracotta">Book Your VIP Session</h3>
+                        <p class="text-xs text-charcoal/70 leading-relaxed">Reserve your appointment at Tariq Hair Salon for expert curl styling.</p>
+                    </div>
+                    <a href="https://instagram.com/tariq.hair" target="_blank" rel="noopener" class="w-full text-center py-3.5 rounded-full bg-terracotta text-white font-bold text-sm hover:bg-terracotta-dark active:scale-95 transition-all shadow-md">
+                        Book via Instagram (@tariq.hair)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DIY HAIR MASK SECTION -->
+    <section id="diy" class="py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="text-center space-y-3">
+                <span class="text-xs uppercase tracking-widest font-bold text-earthgreen">At-Home Curl Rituals</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-charcoal">Ireo Sakafo Tena Ilain’ny Volo!</h2>
+                <p class="text-xs sm:text-sm text-charcoal/70">Proteine Recette Maison - Natural DIY Protein Hair Mask Recipe</p>
+            </div>
+
+            <div class="bg-cream-card rounded-3xl p-6 sm:p-10 border border-terracotta/15 shadow-sm space-y-8">
+                <!-- Ingredients -->
+                <div class="grid grid-cols-3 gap-3 text-center border-b border-terracotta/10 pb-6">
+                    <div class="p-3 bg-cream rounded-2xl">
+                        <span class="block text-2xl sm:text-3xl mb-1">🌾</span>
+                        <span class="font-bold text-xs sm:text-sm text-charcoal block">Farine de riz</span>
+                        <span class="text-[11px] text-charcoal/60">3 soto</span>
+                    </div>
+                    <div class="p-3 bg-cream rounded-2xl">
+                        <span class="block text-2xl sm:text-3xl mb-1">🥛</span>
+                        <span class="font-bold text-xs sm:text-sm text-charcoal block">Rooo</span>
+                        <span class="text-[11px] text-charcoal/60">1 verre</span>
+                    </div>
+                    <div class="p-3 bg-cream rounded-2xl">
+                        <span class="block text-2xl sm:text-3xl mb-1">🍯</span>
+                        <span class="font-bold text-xs sm:text-sm text-charcoal block">Honey / Mofaiky</span>
+                        <span class="text-[11px] text-charcoal/60">1 soto</span>
+                    </div>
+                </div>
+
+                <!-- Steps -->
+                <div class="space-y-4">
+                    <h3 class="font-serif text-lg font-bold text-terracotta">Mode d’utilisation Step-by-Step:</h3>
+                    <ol class="space-y-3 text-xs sm:text-sm text-charcoal/80 list-decimal pl-5 leading-relaxed">
+                        <li>Andrahoana ambony alo malefaka (Boil gently on low heat until soft).</li>
+                        <li>Ahosotra taom-bolo maina (Apply evenly on dry hair).</li>
+                        <li>Pause 30 min (Leave on for 30 minutes).</li>
+                        <li>Sasana tsara (Rinse thoroughly).</li>
+                        <li>Araho leave-in creme na baume capillaire (Follow up with Tariq leave-in cream or balm while styling).</li>
+                    </ol>
+                </div>
+
+                <div class="bg-earthgreen/10 p-4 rounded-2xl border border-earthgreen/20 text-xs text-earthgreen font-semibold leading-relaxed">
+                    💡 <strong>Benefits:</strong> Protection, Clarification, Hydratation, Nutrition & Proteine. Mitsabo sy miaro ifotony ny volo tapatapaka sy simba be.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUSINESS STRATEGY OVERVIEW -->
+    <section id="business" class="py-16 sm:py-24 bg-cream-card border-t border-terracotta/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-3">
+                <span class="text-xs uppercase tracking-widest font-bold text-earthgreen">Strategic Roadmap</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-charcoal">Business Model Overview</h2>
+                <p class="text-xs sm:text-sm text-charcoal/70">Complete strategic structure behind the Tariq Hair brand expansion.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-cream border border-terracotta/10 space-y-3">
+                    <h3 class="font-serif text-base sm:text-lg font-bold text-terracotta">Value Propositions</h3>
+                    <ul class="text-xs space-y-2 text-charcoal/80">
+                        <li>• 100% Natural botanical formulations</li>
+                        <li>• Sulfate & paraben free curl care</li>
+                        <li>• Deep hair hydration & definition</li>
+                        <li>• Cruelty-free & eco-conscious packaging</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-cream border border-terracotta/10 space-y-3">
+                    <h3 class="font-serif text-base sm:text-lg font-bold text-terracotta">Channels</h3>
+                    <ul class="text-xs space-y-2 text-charcoal/80">
+                        <li>• Official E-Commerce Store</li>
+                        <li>• Social Media & Influencers</li>
+                        <li>• Salon Partnerships & Outlets</li>
+                        <li>• Pop-up Beauty Events</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-cream border border-terracotta/10 space-y-3">
+                    <h3 class="font-serif text-base sm:text-lg font-bold text-terracotta">Customer Relationships</h3>
+                    <ul class="text-xs space-y-2 text-charcoal/80">
+                        <li>• Personalized Hair Consultations</li>
+                        <li>• Active Instagram & TikTok Community</li>
+                        <li>• Rewards & Loyalty Discounts</li>
+                        <li>• Educational Styling Tutorials</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-cream border border-terracotta/10 space-y-3">
+                    <h3 class="font-serif text-base sm:text-lg font-bold text-terracotta">Revenue Streams</h3>
+                    <ul class="text-xs space-y-2 text-charcoal/80">
+                        <li>• Online Direct-to-Consumer Sales</li>
+                        <li>• Product Bundle Boxes</li>
+                        <li>• Salon Service Fees</li>
+                        <li>• Wholesale Salon Distribution</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-cream border border-terracotta/10 space-y-3">
+                    <h3 class="font-serif text-base sm:text-lg font-bold text-terracotta">Key Activities & Resources</h3>
+                    <ul class="text-xs space-y-2 text-charcoal/80">
+                        <li>• Natural Formula Testing & R&D</li>
+                        <li>• Content Creation & Marketing</li>
+                        <li>• Salon Operations & Service</li>
+                        <li>• Logistics & E-Commerce Tech</li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-cream border border-terracotta/10 space-y-3">
+                    <h3 class="font-serif text-base sm:text-lg font-bold text-terracotta">Key Partners & Costs</h3>
+                    <ul class="text-xs space-y-2 text-charcoal/80">
+                        <li>• Raw Ingredient Suppliers</li>
+                        <li>• Delivery & Shipping Logistics</li>
+                        <li>• Production, Advertising, Packaging</li>
+                        <li>• Salon Personnel & Operations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-charcoal text-white pt-16 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="space-y-4 md:col-span-2">
+                    <span class="font-serif text-3xl font-bold text-terracotta-light">Tariq Hair</span>
+                    <p class="text-xs text-white/70 max-w-sm leading-relaxed">
+                        Dedicated to the beauty and health of curly hair. Formulated with care, love, and natural ingredients that nourish and define every curl.
+                    </p>
+                    <div class="text-xs text-white/60 space-y-1">
+                        <p>🌐 Website: www.tariqhair.com</p>
+                        <p>📸 Instagram: @tariq.hair</p>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-terracotta-light uppercase tracking-wider">Quick Navigation</h4>
+                    <ul class="text-xs space-y-2 text-white/70">
+                        <li><a href="#about" class="hover:text-white transition-colors">Our Mission</a></li>
+                        <li><a href="#products" class="hover:text-white transition-colors">Product Range</a></li>
+                        <li><a href="#salon" class="hover:text-white transition-colors">Salon & Care</a></li>
+                        <li><a href="#business" class="hover:text-white transition-colors">Business Model</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3 bg-white/5 p-4 rounded-2xl border border-white/10">
+                    <h4 class="text-xs font-bold text-terracotta-light uppercase tracking-wider">Project Credits</h4>
+                    <div class="text-xs text-white/70 space-y-1">
+                        <p class="font-bold text-white">PARUL UNIVERSITY</p>
+                        <p class="text-[11px] text-white/50">NAAC A++ Accredited</p>
+                        <p>Subject: Entrepreneurship</p>
+                        <p class="pt-2 text-terracotta-light font-medium">Student: SAMBOSOAHIRINA Valimbavaka Nisih Edena</p>
+                        <p>ID: 25061721000024</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-white/10 text-center text-xs text-white/50 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Tariq Hair. All rights reserved. Nourish • Define • Empower.</p>
+                <p>Light UI Edition — Responsive & Mobile Optimized</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Mobile Drawer Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for Smooth Reveal Effects
+        (function(){
+            const els = document.querySelectorAll('.reveal');
+            if(!('IntersectionObserver' in window)) return;
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if(e.isIntersecting) {
+                        e.target.classList.add('in');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            els.forEach((el, i) => {
+                el.style.transitionDelay = ((i % 4) * 70) + 'ms';
+                io.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>
